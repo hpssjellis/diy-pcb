@@ -1,0 +1,93 @@
+/*
+* rgb-led06.txt
+*
+*note a resistor say 100 ohm between each pin a0,a1,a2,a6 and the smd LED pads
+*
+*
+*/
+
+
+
+
+
+#include <Arduino.h> // Only needed by https://platformio.org/
+
+
+
+
+// Define the pins for our LEDs.
+// We're using pins 9, 10, and 11 because they can do "analog" output (PWM)
+// which means we can control how bright the LEDs are.
+const int myLedRed = A0;   // Connect your red LED to pin 9
+const int myLedGreen = A1; // Connect your green LED to pin 10
+const int myLedBlue = A2;  // Connect your blue LED to pin 11
+const int myCommonPositive = A6;  
+
+void setup() {
+  // Start talking to the computer (Serial Monitor) so we can see messages.
+  Serial.begin(115200);
+  Serial.println("Hello! Random LED light show is starting!");
+
+  // This helps make our random numbers truly random each time the Arduino starts.
+  // It reads a tiny bit of noise from an unconnected pin (A3).
+  randomSeed(analogRead(A3));
+  Serial.print("Random numbers are ready!");
+
+  // Tell the Arduino that these pins will SEND power OUT to the LEDs.
+  pinMode(myLedRed, OUTPUT);
+  pinMode(myLedGreen, OUTPUT);
+  pinMode(myLedBlue, OUTPUT); 
+  pinMode(myCommonPositive, OUTPUT); 
+
+  // Set initial brightness for each LED.
+  // 'analogWrite' controls brightness from 0 (off) to 255 (full brightness).
+  analogWrite(myLedRed, random(256));
+  analogWrite(myLedGreen, random(256));
+  analogWrite(myLedBlue, random(256));
+  analogWrite(myCommonPositive, random(256));
+  Serial.println("Initial LED colors set!");
+}
+
+void loop() {
+  // Let's make each LED change to a new random brightness!
+
+  // For the Red LED:
+  int redBrightness = random(256); // Pick a random number between 0 and 255
+  analogWrite(myLedRed, redBrightness); // Set the red LED to that brightness
+  Serial.print("Red LED brightness: ");
+  Serial.println(redBrightness);
+
+  // For the Green LED:
+  int greenBrightness = random(256); // Pick another random number
+  analogWrite(myLedGreen, greenBrightness); // Set the green LED
+  Serial.print("Green LED brightness: ");
+  Serial.println(greenBrightness);
+
+  // For the Blue LED:
+  int blueBrightness = random(256); // Pick a third random number
+  analogWrite(myLedBlue, blueBrightness); // Set the blue LED
+  Serial.print("Blue LED brightness: ");
+  Serial.println(blueBrightness);
+  delay(500);
+  
+  analogWrite(myLedRed, 255); // Since the LED is positive common, this might turn it off
+  analogWrite(myLedGreen, 255); 
+  analogWrite(myLedBlue, 255); 
+  analogWrite(myCommonPositive, 255); 
+  delay(500);
+
+
+
+   analogWrite(myLedRed, redBrightness); 
+   analogWrite(myLedGreen, greenBrightness); 
+   analogWrite(myLedBlue, blueBrightness); 
+   delay(500);
+    
+  analogWrite(myLedRed, 0); // or this
+  analogWrite(myLedGreen, 0); 
+  analogWrite(myLedBlue, 0); 
+  analogWrite(myCommonPositive, 0); 
+  delay(2000);
+ 
+  analogWrite(myCommonPositive, 255);   // set the LED back on
+}
