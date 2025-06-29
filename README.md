@@ -2,6 +2,8 @@
 
 
 
+page at https://hpssjellis.github.io/diy-pcb/public/index.html
+
 Best process so far.
 
 1. Cardboard
