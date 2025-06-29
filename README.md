@@ -26,4 +26,8 @@ Best process so far.
 ![Image2](public/Screenshot_20250626_105008_Gallery.jpgg)
 
 
-20250626_001210.mp4
+
+https://hpssjellis.github.io/diy-pcb/public/20250626_001210.mp4
+
+<embed src="20250626_001210.mp4"></embed>
+
