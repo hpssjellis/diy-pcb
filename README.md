@@ -14,3 +14,14 @@ Best process so far.
 8. Use Bare conducting ink to connect the pins to the traces and heat dry or let dry
 9. cover the pins and conducting ink with glue gun glue. Could cover the entire back of the board but looks better to see the traces
 10. Test and check trace conductivity
+
+
+
+
+
+![Image1](public/Screenshot_20250626_001314_Gallery.jpg)
+
+![Image2](public/Screenshot_20250626_105008_Gallery.jpgg)
+
+
+20250626_001210.mp4
